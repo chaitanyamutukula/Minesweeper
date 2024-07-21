@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <header>
+        <h1>Minesweeper</h1>
+        <button id="switch-mode" onclick="toggleMode()">Switch to Dark Mode</button>
+    </header>
+    <div class="container">
+        <div class="instructions">
+            <h2>How to Play</h2>
+            <p>1.Click on the cells to reveal them and avoid mines.</p>
+            <p>2.Numbers in revealed cells show how many mines are adjacent to that cell.</p>
+            <p>3.Right-click to flag a cell as a mine to mark it.</p>
+            <p>4.Be cautious and use the numbers to deduce where the mines might be!</p>
+            <h3 style="color: #007bff;">Difficulty Levels:</h3>
+<ul>
+    <li><strong style="color: #007bff;">Easy:</strong> 9×9 grid with 20 mines</li>
+    <li><strong style="color: #007bff;">Medium:</strong> 10×12 grid with 40 mines</li>
+    <li><strong style="color: #007bff;">Hard:</strong> 12×14 grid with 80 mines</li>
+</ul>
+        </div>
+        <div class="buttons">
+            <button onclick="startGame('easy')">Easy</button>
+            <button onclick="startGame('medium')">Medium</button>
+            <button onclick="startGame('hard')">Hard</button>
+            <button onclick="showCustomOptions()">Custom</button>
+        </div>
+        <div id="custom-options" class="hidden">
+            <h3>Custom Game</h3>
+            <label for="custom-rows">Rows:</label>
+            <input type="number" id="custom-rows" value="9" min="1">
+            <label for="custom-cols">Columns:</label>
+            <input type="number" id="custom-cols" value="9" min="1">
+            <label for="custom-mines">Mines:</label>
+            <input type="number" id="custom-mines" value="20" min="1">
+            <button onclick="startCustomGame()">Start Custom Game</button>
+            <button onclick="closeCustomOptions()">Cancel</button>
+        </div>
+        <div id="game"></div>
+    </div>
+    <div id="popup-game-over" class="popup hidden">
+        <div class="popup-content">
+            <p>Game Over!</p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+    <div id="popup-game-won" class="popup hidden">
+        <div class="popup-content">
+            <p>You Won!</p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
